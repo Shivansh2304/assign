@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Infinite Loop Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #181833; /* Dark blue background color */
+            overflow: hidden; /* Hide overflowing dots */
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bigbox {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #ffffff; 
+            animation: move-up 1s linear infinite; /* Animation duration: 3s, infinite loop */
+        }
+     
+
+   
+
+        @keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    z-index: 3;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.waveWrapperInner {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background: transparent;
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+}
+.wave {
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+.header-nav-bar{
+    display: flex;
+    margin: 0 10% 2% 10%;
+    justify-content: space-between;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.logo{
+    height: 80%;
+    width: 20%;
+}
+#logoo{
+    height: 25% ;
+    width: 20%;
+}
+.nav-bar-items{
+    justify-content:space-between;
+    
+}
+header{
+    height: 10%;
+    margin-top: 2%;
+}
+a{
+    color: #94949e;
+    margin: 4% 0 0 0;
+    text-decoration: none;
+    padding: 0 0 0 1rem;
+}
+.line1{
+    color: white;
+    font-size: 3rem;
+}
+        @keyframes move-up {
+            0% {
+                transform: translateY(100vh); /* Start position: bottom of the screen */
+            }
+            100% {
+                transform: translateY(-100vh); /* End position: top of the screen */
+            }
+        }
+.line2{
+    color: white;
+    font-size: 1rem;
+    margin: 2rem 0 2rem 0;
+}
+    .mid{
+        display: flex;
+    }
+    .text-left-side{
+        width: 50%;
+       margin-top: 5%;
+       margin-left: 5%;
+    }
+    .text-left{
+        width: 80%;
+    }
+    .img-mid{
+        margin: 0 10rem 0 0;
+    }
+    .button{
+        background-color:#1adb80;
+        font-size: 1rem;
+        padding: 1rem 2rem 1rem 2rem;
+        border: none;
+        word-spacing: 0.5rem;
+        border-radius: 3%;
+    }
+    #bt2{
+        margin: 0 0 0 2%;
+    }
+/* ... (existing styles) ... */
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  color: #94949e;
+  margin: 4% 0 0 0;
+  text-decoration: none;
+  padding: 0 0 0 1rem;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-toggle-button {
+  display: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 700px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    display: none; /* Hide the navigation links by default on small screens */
+  }
+
+  .nav-links a {
+    margin: 1rem 0;
+  }
+
+  /* Show the navigation links when the button is clicked */
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-toggle-button {
+    display: block; /* Show the navigation toggle button on small screens */
+  }
+
+  /* Adjust the alignment of the elements in .mid for small screens */
+  .mid {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+    </style>
+</head>
+<body >
+    <!-- background stars -->
+    <div class="bigbox"></div>
+         <!-- Header design -->
+         <!-- <header>
+            <div class="header-nav-bar container flex">
+                <div class="logo" ><img id="logoo" src="./freeskout.png"></div>
+                <nav class="nav-bar-items">
+                    <a href="#home-container" id="home" class="active">BRANDS</a>
+                    <a href="#about-section" id="about">INFLUENCERS</a>
+                    <a href="#service-section" id=" services ">PRICINGS</a>
+                    <a href="#portfolio-div" id="portfolio">BLOGS</a>
+                    <a href="#footer" id="">Contact</a>
+                </nav>
+            </div>
+        </header> -->
+        <!-- Header design -->
+<header>
+    <div class="header-nav-bar container flex">
+      <div class="logo">
+        <img id="logoo" src="./freeskout.png">
+      </div>
+      <div class="nav-links">
+        <a href="#home-container" id="home" class="active">BRANDS</a>
+        <a href="#about-section" id="about">INFLUENCERS</a>
+        <a href="#service-section" id="services">PRICINGS</a>
+        <a href="#portfolio-div" id="portfolio">BLOGS</a>
+        <a href="#footer" id="">Contact</a>
+      </div>
+      <button class="nav-toggle-button">&#9776;</button>
+    </div>
+  </header>
+  
+
+
+        <!-- bottom  space -->
+
+        <section class="mid">
+            <div class="text-left-side">
+                <div class="text-left">
+               <h1 class="line1">Discover. Connect Collabator</h1>
+               <h3 class="line2">An ecosystem for social media Influencer and Brands.</h3>
+               <button class="button">I'M INFLUENCERS</button>
+               <button id="bt2" class="button">I'M BRAND</button></div>
+            </div>
+            <div class="img-mid"><img src="./top-3.png"></div>
+        </section>
+
+
+
+<div class="waveWrapper waveAnimation">
+    <div class="waveWrapperInner bgTop"  style="display:none;">
+      <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+    </div>
+    <div class="waveWrapperInner bgMiddle"  style="display:none;">
+      <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+    </div>
+    <div class="waveWrapperInner bgBottom">
+      <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+    </div>
+  </div>
+
+
+
+
+    <!-- Add multiple dots using JavaScript or HTML -->
+    <script>
+        // Generate 100 dots dynamically
+        const dotsContainer = document.body;
+        const numDots = 60;
+     
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('bigbox');
+            dot.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+            dot.style.animationDelay = `${Math.random()}s`; // Random animation delay
+            dotsContainer.appendChild(dot);
+        }
+       
+
+        // JavaScript code goes here
+
+// Function to toggle the visibility of the navigation links
+function toggleNavLinks() {
+  const navLinks = document.querySelector(".nav-links");
+  navLinks.classList.toggle("show");
+}
+
+// Add a click event listener to the navigation toggle button
+const navToggleButton = document.querySelector(".nav-toggle-button");
+navToggleButton.addEventListener("click", toggleNavLinks);
+
+        
+    </script>
+</body>
+</html>
